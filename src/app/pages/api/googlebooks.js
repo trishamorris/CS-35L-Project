@@ -2,16 +2,14 @@
 
 import { useState } from 'react';
 
-function bookSearch() {
+function BookSearch() {
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const API_KEY = 'AIzaSyDN16AFs3Tm2z7ZfWqYxsR6_eJ5Yd2o0sg';
+  const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_BOOKS_API_KEY;
 
-  async function handleSearch(e) {
-    function handleSubmit(event) { // this is to stop the search button from reloading the page
-        event.preventDefault();
-      }
+  async function handleSearch(event) {
+    event.preventDefault();
     setLoading(true); // boolean state variable to mark search as in progress/complete
 
     const url = `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=10&key=${API_KEY}`;
@@ -48,4 +46,4 @@ function bookSearch() {
   );
 }
 
-export default bookSearch;
+export default BookSearch;
