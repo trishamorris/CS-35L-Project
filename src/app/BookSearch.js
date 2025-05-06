@@ -29,7 +29,7 @@ function BookSearch() {
 
   return (
     <div style={{ padding: '20px' }}>
-      <h1>Google Books Search</h1>
+      <h1>book search</h1>
 
       <form onSubmit={handleSearch}>
         <input
