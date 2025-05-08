@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import Link from 'next/link';
+import BookSearch from './BookSearch';
 
 export default function Home() {
   return (
@@ -14,7 +15,7 @@ export default function Home() {
           height={38}
           priority
         />
-
+        <BookSearch />
         <div className={styles.ctas}>
           <Link href="/pages/login" className={styles.primary}>
               Link to Login Page
@@ -74,5 +75,4 @@ export default function Home() {
         </a>
       </footer>
     </div>
-  );
-}
+)};
