@@ -1,16 +1,16 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, FormEvent, ChangeEvent } from 'react';
 
 function BookSearch() {
-  const [query, setQuery] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [query, setQuery] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
 
   const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_BOOKS_API_KEY;
 
-  async function handleSearch(event) {
+  async function handleSearch(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setLoading(true); // boolean state variable to mark search as in progress/complete
+    setLoading(true);
 
     const url = `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=10&key=${API_KEY}`;
 
@@ -18,10 +18,9 @@ function BookSearch() {
       const response = await fetch(url);
       const data = await response.json();
 
-// just shows stuff in console (no front end yet)
       console.log('Search result:', data);
     } catch (err) {
-      console.log('Error fetching data:', err);
+      console.error('Error fetching data:', err);
     }
 
     setLoading(false);
@@ -35,7 +34,7 @@ function BookSearch() {
         <input
           type="text"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
           placeholder="Enter book title"
         />
         <button type="submit">
