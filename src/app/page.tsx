@@ -1,4 +1,4 @@
-import BookSearch from './BookSearch';
+import BookSearch from '../pages/BookSearch';
 
 export default function Home() {
   return (

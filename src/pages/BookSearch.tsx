@@ -5,14 +5,12 @@ import { useState, FormEvent, ChangeEvent } from 'react';
 function BookSearch() {
   const [query, setQuery] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
-
-  const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_BOOKS_API_KEY;
-
+  
   async function handleSearch(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setLoading(true);
 
-    const url = `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=10&key=${API_KEY}`;
+    const url = `/api?query=${encodeURIComponent(query)}`;
 
     try {
       const response = await fetch(url);
