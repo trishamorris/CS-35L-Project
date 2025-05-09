@@ -33,18 +33,13 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env.local
 
->>>>>>> aad4f65 (Added .env.example, updated .gitignore to only ignore .env.local)
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
-<<<<<<< HEAD
 next-env.d.ts
 
 .flaskenv*
 !.env.project
 !.env.vault
-=======
-next-env.d.ts
->>>>>>> aad4f65 (Added .env.example, updated .gitignore to only ignore .env.local)
