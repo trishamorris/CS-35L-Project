@@ -10,7 +10,7 @@ function BookSearch() {
     event.preventDefault();
     setLoading(true);
 
-    const url = `/api?query=${encodeURIComponent(query)}`;
+    const url = `/api/ApiRequests?query=${encodeURIComponent(query)}`;
 
     try {
       const response = await fetch(url);
